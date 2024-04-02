@@ -17,12 +17,17 @@ app.get("/api/test",(req,res)=>{
     })
 })
 
-let arr=["https://agnee-enterprise.onrender.com/api/test","https://serverloader.onrender.com/api/test"]
+let arr=["https://agnee-enterprise.onrender.com/api/test","https://server-loader.vercel.app/api/test"]
 
 const getApi=async()=>{
         arr.forEach(async (link)=>{
-            const res=await Axios.get(link);
-            console.log(res.data)
+            try{
+
+                const res=await Axios.get(link);
+                console.log(res.data)
+            }catch(error){
+                console.log(error)
+            }
         })
 }
 
